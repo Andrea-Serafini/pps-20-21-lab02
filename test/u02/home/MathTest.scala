@@ -48,4 +48,13 @@ class MathTest {
     assertFalse(notEmpty(""))
     assertTrue(notEmpty("foo") && !notEmpty(""))
   }
+
+  @Test def testNegMethodGeneric(): Unit ={
+    val zero: Int => Boolean = _==0// predicate on strings
+    val notZero = negMethod(zero) // which type of notEmpty?
+
+    assertTrue(notZero(3))
+    assertFalse(notZero(0))
+    assertTrue(notZero(3) && !notZero(0))
+  }
 }

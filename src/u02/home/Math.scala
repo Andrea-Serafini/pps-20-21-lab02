@@ -23,7 +23,7 @@ object Math {
     case _ => "ODD"
   }
 
-  def negMethod(predicate: String => Boolean): String => Boolean = {
+  def negMethod[A](predicate: A => Boolean): A => Boolean = {
     !predicate(_)
   }
 }
