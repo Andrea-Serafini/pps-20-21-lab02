@@ -30,4 +30,22 @@ class MathTest {
     assertEquals("EVEN", parity2b(evenValue))
     assertEquals("ODD", parity2b(oddValue))
   }
+
+  @Test def testNegMethod(): Unit ={
+    val empty: String => Boolean = _=="" // predicate on strings
+    val notEmpty = negMethod(empty) // which type of notEmpty?
+
+    assertTrue(notEmpty("foo"))
+    assertFalse(notEmpty(""))
+    assertTrue(notEmpty("foo") && !notEmpty(""))
+  }
+
+  @Test def testNegVal(): Unit ={
+    val empty: String => Boolean = _==""
+    val notEmpty = negVal(empty)
+
+    assertTrue(notEmpty("foo"))
+    assertFalse(notEmpty(""))
+    assertTrue(notEmpty("foo") && !notEmpty(""))
+  }
 }

@@ -7,6 +7,8 @@ object Math {
     case 1 => "odd"
   }
 
+  val negVal : (String =>  Boolean) => (String =>  Boolean) = func => string => !func(string)
+
   def parity2(value: Int): String = value match {
     case value if value % 2 == 0 => "EVEN"
     case _ => "ODD"
@@ -19,5 +21,9 @@ object Math {
   def parity2b(value: Int): String = value % 2 match {
     case 0 => "EVEN"
     case _ => "ODD"
+  }
+
+  def negMethod(predicate: String => Boolean): String => Boolean = {
+    !predicate(_)
   }
 }
