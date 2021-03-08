@@ -1,6 +1,6 @@
 package u02.home
 
-import org.junit.jupiter.api.Assertions.{assertEquals, assertFalse, assertTrue}
+import org.junit.jupiter.api.Assertions._
 import org.junit.jupiter.api.Test
 import u02.home.Currying._
 
@@ -42,4 +42,32 @@ class CurryingTest {
 
   }
 
+  @Test def testCompose(){
+    assertEquals(9,compose(_-1,_*2)(5))
+
+    val twoThird = compose(_*2,_/3)
+    assertEquals(6, twoThird(9))
+
+  }
+
+  @Test def testComposeGeneric(){
+    assertEquals(9,composeGeneric[Int](_-1,_*2)(5))
+
+    val twoThird = composeGeneric[Int](_*2,_/3)
+    assertEquals(6, twoThird(9))
+
+  }
+
+  @Test def testComposeGenericComplex(){
+
+    val lessThanTHREE = composeGenericComplex[String, Int, Boolean](_<3,_ match{
+      case "ONE" => 1
+      case "TWO" => 2
+      case _ => 3
+    })
+
+    assertTrue(lessThanTHREE("ONE"))
+    assertFalse(lessThanTHREE("FOUR"))
+
+  }
 }
