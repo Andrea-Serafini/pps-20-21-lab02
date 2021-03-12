@@ -32,4 +32,18 @@ class OptionalsTest {
 
   }
 
+  @Test def testDouble(): Unit ={
+
+    assertEquals(Some(10), double(Some(5)))
+    assertEquals(None(), double(None()))
+
+  }
+
+  @Test def testOpposite(): Unit ={
+
+    assertEquals(Some(false), opposite(Some(true)))
+    assertEquals(None(), opposite(None()))
+
+  }
+
 }

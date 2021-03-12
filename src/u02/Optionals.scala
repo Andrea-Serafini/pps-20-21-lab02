@@ -36,6 +36,11 @@ object Optionals extends App {
       case (Some(a), Some(b)) => Some(map(a, b))
       case _ => None()
     }
+
+    def double(opt: Option[Int]): Option[Int] = map(opt)(_*2)
+
+    def opposite(opt: Option[Boolean]): Option[Boolean] = map(opt)(!_)
+
   }
 
   import Option._
