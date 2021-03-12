@@ -27,9 +27,9 @@ object Optionals extends App {
       case Some(i) => if (a(i)) { opt } else {None()}
     }
 
-    def map[A](opt: Option[A])(a: A => Boolean): Option[Boolean] = opt match {
+    def map[A, B](opt: Option[A])(a: A => B): Option[B] = opt match {
       case None() => None()
-      case Some(i) => if (a(i)) { Some(true) } else {Some(false)}
+      case Some(i) => Some(a(i))
     }
 
     def map2[X, Y, Z](map: (X, Y) => Z)(opt1: Option[X], opt2: Option[Y]): Option[Z] = (opt1, opt2) match {

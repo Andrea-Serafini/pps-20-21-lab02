@@ -18,6 +18,8 @@ class OptionalsTest {
     assertEquals(Some(true), map(Some(5))(_ > 2))
     assertEquals(None(), map(None[Int])(_ > 2))
 
+    assertEquals(Some(10), map(Some(5))(_ * 2))
+
   }
 
   @Test def testMap2(): Unit ={
